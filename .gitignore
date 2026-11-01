@@ -1,0 +1,10 @@
+# archives and model weights - exceed GitHub's 100MB file limit
+*.zip
+*.pt
+checkpoints/
+
+# python / jupyter scratch
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+Data_preparation/Data/

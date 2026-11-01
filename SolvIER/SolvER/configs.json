@@ -1,0 +1,13 @@
+[
+    {
+        "name": "DBLPGoogleScholar",
+        "task_type": "classification",
+        "vocab": [
+            "0",
+            "1"
+        ],
+        "trainset": "/home/u59352/SolvIER2/SolvIER/Data/train_DBLPGoogleScholar.txt",
+        "validset": "/home/u59352/SolvIER2/SolvIER/Data/valid_DBLPGoogleScholar.txt",
+        "testset": "/home/u59352/SolvIER2/SolvIER/Data/test_DBLPGoogleScholar_MNAR_40_7430_imputed_senti.txt"
+    }
+]

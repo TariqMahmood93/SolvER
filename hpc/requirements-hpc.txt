@@ -1,0 +1,37 @@
+# Versions this pipeline actually runs on (Python 3.12).
+# The old SolvER/requirements.txt pins torch==1.9.0+cu111, numpy==1.19.2 and
+# sklearn==0.0 (a dead stub package) - it will not resolve on a current cluster.
+#
+# Install torch FIRST, from the index matching the cluster's CUDA, e.g.
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+# then this file. faiss is deliberately left out: install it from the cluster's
+# conda/module system so it matches the node's CUDA (see setup_hpc.md).
+
+transformers==4.57.1
+sentence-transformers==3.0.1
+numpy==1.26.4
+pandas==2.3.3
+scikit-learn==1.8.0
+scipy==1.17.1
+tqdm==4.67.3
+jsonlines==4.0.0
+nltk==3.10.3
+sentencepiece==0.2.2
+regex==2026.3.32
+
+# ditto_light/ditto.py imports SummaryWriter at module scope, so train_ditto.py
+# and evaluate_all.py both fail at import without it
+tensorboardX==2.6.2.2
+
+# the plotting notebook (Data_preparation/code/plot_imputation.ipynb)
+matplotlib==3.9.2
+
+# submit_dataprep.slurm executes the notebooks with `jupyter nbconvert`
+notebook==7.2.2
+nbconvert==7.16.4
+ipykernel==6.29.5
+
+# optional, only if you pass --dk to train_ditto.py (the pipeline does not):
+#   spacy==3.7.5  +  python -m spacy download en_core_web_lg
+# apex is NOT required: ditto.py and matcher.py guard the import and only use
+# it for --fp16, which this pipeline never passes.
